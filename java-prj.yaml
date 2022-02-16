@@ -1,6 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: java-prj-ns
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: java-prj-ns
   name: java-prj-deployment
   labels:
     app: java-prj
@@ -24,6 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: java-prj-ns
   labels:
     app: java-prj
   name: java-prj-svc
